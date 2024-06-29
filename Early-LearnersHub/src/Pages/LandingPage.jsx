@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../assets/Images/logo.png';
 import Img1 from '../assets/Images/books.png';
 import Img2 from '../assets/Images/cute-girl.png';
@@ -8,6 +8,7 @@ import Img5 from '../assets/Images/bulls-eye.png';
 import Img6 from '../assets/Images/hand.png';
 
 const LandingPage = () => {
+    const [showModal, setModal] = useState(true);
     return (
         <div className="px-5 font-poppins h-auto pb-6">
             <div className='bg-[#6EDBD0] w-full h-[5vh]'></div>
@@ -75,6 +76,21 @@ const LandingPage = () => {
                 </div>
             </div>
             <div className='w-full h-[40vh]'></div>
+            {showModal && (
+                <div className="fixed w-[100%] h-[100%] inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-hidden z-20">
+                    <div className='bg-[#FFEAB4] w-[20%] h-[40vh] rounded-3xl'>
+                        <div className='bg-white w-[50%] h-[10vh] flex items-center justify-center mx-auto mt-[-5vh] border-[5px] border-[#7AAFEB] rounded-3xl'>
+                            <h1 className='text-[1.5rem] font-bold'>Who's Here?</h1>
+                        </div>
+                        <button className='float-right p-1 border-[2px] mr-9 w-[4vh] hover:shadow-slate-250 hover:shadow-lg font-bold border-black rounded-md'>X</button>
+                        <div className='mx-auto w-[60%] h-[60%] mt-[5vh] flex flex-col gap-9'>
+                            <button className='w-full bg-[#F5F5F5] h-[6vh] rounded-xl shadow-2xl text-[1.5rem]'>Student</button>
+                            <button className='w-full bg-[#F5F5F5] h-[6vh] rounded-xl shadow-2xl text-[1.5rem]'>Parent</button>
+                            <button className='w-full bg-[#F5F5F5] h-[6vh] rounded-xl shadow-2xl text-[1.5rem]'>Teacher</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>  
     );
 }
